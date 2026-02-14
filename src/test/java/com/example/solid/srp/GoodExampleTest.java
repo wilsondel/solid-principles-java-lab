@@ -1,5 +1,8 @@
 package com.example.solid.srp;
 
+import com.example.solid.ocp.NoDiscount;
+import com.example.solid.ocp.RegularCustomerDiscount;
+import com.example.solid.ocp.VIPCustomerDiscount;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 

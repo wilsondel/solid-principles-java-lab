@@ -1,6 +1,6 @@
 package com.example.solid.srp;
 
-public class Invoice {
+class Invoice {
     private String customer;
     private double amount;
 

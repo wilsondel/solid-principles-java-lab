@@ -3,38 +3,27 @@ package com.example.solid.ocp;
 public class GoodExample {
 }
 
-// InvoiceCalculator únicamente calcula
-class InvoiceCalculator  {
-    private double amount;
+interface DiscountStrategy {
+    double calculateDiscount(double price);
+}
 
-    public InvoiceCalculator(double amount) {
-        this.amount = amount;
-    }
-
-    public double calculateTotal() {
-        return amount * 1.21;
+class RegularCustomerDiscount implements DiscountStrategy {
+    @Override
+    public double calculateDiscount(double price) {
+        return price * 0.10;
     }
 }
 
-// InvoiceCalculator únicamente imprime
-class InvoicePrinter {
-    private InvoiceCalculator calculator;
-
-    public InvoicePrinter(InvoiceCalculator calculator) {
-        this.calculator = calculator;
-    }
-
-    public void printInvoice(Invoice invoice) {
-        System.out.println("Factura para: " + invoice);
-        System.out.println("Total: " + calculator.calculateTotal());
+class VIPCustomerDiscount implements DiscountStrategy {
+    @Override
+    public double calculateDiscount(double price) {
+        return price * 0.20;
     }
 }
 
-// InvoiceCalculator guarda a base de datos
-class InvoiceRepository {
-
-    public void saveToDatabase() {
-        System.out.println("Guardando factura...");
+class NoDiscount implements DiscountStrategy {
+    @Override
+    public double calculateDiscount(double price) {
+        return 0;
     }
-
 }
